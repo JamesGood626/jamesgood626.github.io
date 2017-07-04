@@ -11,6 +11,10 @@ html, body {
   position: relative;
 }
 
+header {
+    max-height: 100vh;
+}
+
 .container {
   background: url(../img/sparks.png) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -19,9 +23,15 @@ html, body {
   background-size: cover;
   height: 100vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   max-width: 100%;
   flex-basis: 100%;
+}
+
+.test-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .logo {
@@ -170,13 +180,18 @@ Media Queries Begin
 ***/
 @media screen and (max-width: 768px) {
 
-  .container {
+/*This code makes the mobile navbar possible*/
+  .test-wrap {
     display: flex;
     justify-content: space-between;
-    transition: transform 150ms ease-in-out;
   }
 
-
+/* Added to hopefully correct the scrolling that can happen on mobile*/
+  .menu-container {
+    height: 100vh;
+    max-height: 100vh;
+  }
+    
   .menu {
     display: flex;
     flex-direction: column;
@@ -187,8 +202,6 @@ Media Queries Begin
     padding-top: 10px;
     margin-top: 15px;
     height: 400px;
-    max-height: 100vh;
-
   }
     
     
@@ -231,6 +244,10 @@ Media Queries Begin
     border-radius: 25px;
   }
 
+  .container {
+    transition: transform 150ms ease-in-out;
+  }
+    
   #toggler:checked ~ .container {
     transform: translate3d(-340px,0,0);
   }
